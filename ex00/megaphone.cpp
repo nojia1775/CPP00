@@ -1,22 +1,20 @@
 #include <iostream>
 
-int     main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-        int             i;
-        char    c;
-
-        if (argc != 2)
-                return (1);
-        i = 0;
-        while (argv[1][i])
-        {
-                if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
-                        c = argv[1][i] - 32;
-                else
-                        c = argv[1][i];
-                std::cout << c;
-                i++;
-        }
-        std::cout << std::endl;
-        return (0);
+	if (argc == 1)
+		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl, 0);
+	for (int i = 1 ; i < argc ; i++)
+	{
+ 		for (int j = 0 ; argv[i][j] ; j++)
+		{
+			if (islower(argv[i][j]))
+				std::cout << (char)(argv[i][j] - 32);
+			else
+				std::cout << argv[i][j];
+		}
+		std::cout << " ";
+	}
+	std::cout << std::endl;
+	return 0;
 }
