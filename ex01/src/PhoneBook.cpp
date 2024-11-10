@@ -27,7 +27,7 @@ void    PhoneBook::new_contact(std::string fname, std::string lname, std::string
         {
                 contact.create(fname, lname, nname, num, secret);
                 this->contacts[first] = contact;
-                this->first = (++this->first) % 8; 
+                ++this->first %= 8; 
         }
 }
 
